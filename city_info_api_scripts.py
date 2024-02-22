@@ -1,5 +1,6 @@
 import requests
-from api_consts import API_KEY, CITY_INFO_API_URL
+from api_consts import CITY_INFO_API_URL
+from api_key import API_KEY #FILE NOT INCLUDED IN REPOSITORY
 from dict_scripts import print_dict
 from request_response_handler import process_response
 

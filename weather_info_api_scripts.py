@@ -1,5 +1,6 @@
 import requests
-from api_consts import API_KEY, WEATHER_INFO_API_URL
+from api_consts import WEATHER_INFO_API_URL
+from api_key import API_KEY #FILE NOT INCLUDED IN REPOSITORY
 from game_consts import METRIC
 from city_info_api_scripts import get_location_by_city_name
 from request_response_handler import process_response
