@@ -1,0 +1,3 @@
+METRIC = 'metric'
+IMPERIAL = 'imperial'
+NUMBER_OF_FETCH_ATTEMPTS = 5
