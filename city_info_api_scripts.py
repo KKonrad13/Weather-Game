@@ -22,11 +22,11 @@ def check_different_city_names_by_country(city_name, limit=5):
     local_names = get_local_names(city_name)
     if local_names:
         if isinstance(local_names, dict):
-            print(f'Nazwa miasta {city_name}')
+            print(f'City name: {city_name}')
             for region_code in local_names:
-                print(f'Region: {region_code}, nazwa: {local_names[region_code]}')
+                print(f'Region: {region_code}, name: {local_names[region_code]}')
         else:
-            print(f'Brak wyników, na temat różnych nazw dla miasta: {city_name}')
+            print(f'No results about different names for this city: {city_name}')
 
 def get_local_names(city_name):
     parameters = {
