@@ -69,7 +69,7 @@ def print_facts_about_city(most_recent_weather_data, city_info, measurement_syst
     if rain:
         print(f"Rain volume in the last 3h: {rain['3h']} mm")
     if population:
-        print(f'Population: {population}')#{">" if population > 1000000 else ""}
+        print(f'Population: {population}')
     if timezone:
         print(f'Timezone: {timezone}')
     if sunrise:
