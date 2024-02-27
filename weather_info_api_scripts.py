@@ -24,7 +24,7 @@ def get_weather_by_location(lat, lon, measurement_system = METRIC):
         results = processed_response.json()
         return SafeDict(**results)
     else:
-        print_dict(0, original_response.json())
+        # print_dict(0, original_response.json()) #only for tests
         return None
 
 def print_weather_by_city_name(city_name):

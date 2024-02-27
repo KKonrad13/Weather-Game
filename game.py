@@ -85,30 +85,24 @@ class Game:
         if self.is_game_won():
             self.game_won()
         else:
-            self.guessed_city_weather_info = get_weather_by_city_name(
+            guessed_city_weather_info = get_weather_by_city_name(
                 self.city_guessed, self.measurement_system
             )
-            self.handle_possible_guessed_city_fetch_error()
-            most_recent_weather_data = self.guessed_city_weather_info["list"][-1]
-            guessed_cityfacts = CityFacts(
-                most_recent_weather_data,
-                self.guessed_city_weather_info["city"],
-                self.measurement_system,
-            )
-            self.original_cityfacts.print_difference_between_cities(guessed_cityfacts)
-            print_divider()
-            print('Try again!')
+            if not guessed_city_weather_info:
+                print("Could not fetch data about this city. Try again!")
+            else:
+                most_recent_weather_data = guessed_city_weather_info["list"][-1]
+                guessed_cityfacts = CityFacts(
+                    most_recent_weather_data,
+                    guessed_city_weather_info["city"],
+                    self.measurement_system,
+                )
+                self.original_cityfacts.print_difference_between_cities(guessed_cityfacts)
+                print_divider()
+                print('Try again!')
 
     def handle_possible_guessed_city_fetch_error(self):
-        while not self.is_game_won() and not self.guessed_city_weather_info:
-            print("Could not fetch data about this city. Try again!")
-            self.city_guessed = input()
-            if self.is_game_won():
-                self.game_won()
-            else:
-                self.guessed_city_weather_info = get_weather_by_city_name(
-                    self.city_guessed, self.measurement_system
-                )
+        pass
 
     def is_game_won(self):
         return self.city_guessed.strip().lower() in [city_name.strip().lower() for city_name in self.acceptable_city_names]
