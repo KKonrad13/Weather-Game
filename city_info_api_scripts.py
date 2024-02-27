@@ -4,7 +4,6 @@ from api_key import API_KEY #FILE NOT INCLUDED IN REPOSITORY
 from dict_scripts import print_dict
 from request_response_handler import process_response
 
-
 def get_location_by_city_name(city_name):
     parameters = {
         'q' : city_name,
@@ -18,7 +17,7 @@ def get_location_by_city_name(city_name):
     else:
         return None, None
 
-def check_different_city_names_by_country(city_name, limit=5):
+def check_different_city_names_by_country(city_name):
     local_names = get_local_names(city_name)
     if local_names:
         if isinstance(local_names, dict):
@@ -39,7 +38,7 @@ def get_local_names(city_name):
         data = response.json()[0]
         local_names = data.get('local_names')
         if isinstance(local_names, dict):
-            return local_names
+            return [local_names[key] for key in local_names]
         else:
             return None
 

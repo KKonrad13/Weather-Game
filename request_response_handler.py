@@ -8,8 +8,8 @@ def is_response_not_empty(resposne):
 def process_response(response):
     if is_response_successful(response) and is_response_not_empty(response):
         return response
-    elif not is_response_successful(response):
-        print(f'Error: {response.status_code}')
-    else:
-        print(f'Error: response is empty!')
+    # elif not is_response_successful(response):#for debugging
+    #     print(f'Error: {response.status_code}')
+    # else:
+    #     print(f'Error: response is empty!')
     return None
