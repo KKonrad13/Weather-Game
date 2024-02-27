@@ -76,7 +76,6 @@ class Game:
 
     def pick_city(self):
         self.current_city = pick_random_city()
-        self.current_city = "Istanbul"
         self.acceptable_city_names = get_local_names(self.current_city)
         print(f"Chosen city: {self.current_city}")
 
